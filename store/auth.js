@@ -56,9 +56,11 @@ export const actions = {
 
   async fbSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    const res = await this.$auth.$get('/user/auth/facebook', { params: 
-        { state: state 
-      }})
+    const res = await this.$auth.$get('/user/auth/facebook', { params:
+        { state: state
+      }}, {
+        withCredentials: true
+      })
     window.open(res.url, '_self')
   },
 
@@ -92,7 +94,9 @@ export const actions = {
     const state = require('crypto').randomBytes(16).toString('hex')
     const res = await this.$auth.$get('/user/auth/google', { params: {
         state: state
-      }})
+      }}, {
+        withCredentials: true
+      })
     window.open(res.url, '_self')
   },
 
