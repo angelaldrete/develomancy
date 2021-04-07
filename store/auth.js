@@ -56,7 +56,7 @@ export const actions = {
 
   fbSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    window.open(`${process.env.AUTH_API_URL}/api/user/auth/facebook?state=${state}` || `http://localhost:4000/api/user/auth/facebook?state=${state}`, '_self')
+    window.open(`https://develomancy-auth-api.herokuappp.com/api/user/auth/facebook?state=${state}`, '_self' || `http://localhost:4000/api/user/auth/facebook?state=${state}`, '_self')
   },
 
   async fbLogin ({ commit }) {
@@ -87,7 +87,7 @@ export const actions = {
 
   googleSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    window.open(`${process.env.AUTH_API_URL}/api/user/auth/google?state=${state}` || `http://localhost:4000/api/user/auth/google?state=${state}`, '_self')
+    window.open(`https://develomancy-auth-api.herokuappp.com/api/user/auth/google?state=${state}`, '_self' || `http://localhost:4000/api/user/auth/google?state=${state}`, '_self')
   },
 
   async googleLogin ({ commit }) {
