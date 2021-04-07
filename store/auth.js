@@ -63,7 +63,9 @@ export const actions = {
   },
 
   async fbLogin ({ commit }) {
-    const response = await this.$auth.$get('/user/facebook/profile')
+    const response = await this.$auth.$get('/user/facebook/profile', {
+      withCredentials: true
+    })
 
     if (Object.keys(response).length != 0) {
       commit('setFbLogin', true)
@@ -76,7 +78,9 @@ export const actions = {
   },
 
   async fbLogout ({ commit }) {
-    await this.$auth.$get('/user/facebook/logout')
+    await this.$auth.$get('/user/facebook/logout', {
+      withCredentials: true
+    })
 
     commit('setFbLogin', false)
     commit('setUser', {})
@@ -93,7 +97,9 @@ export const actions = {
   },
 
   async googleLogin ({ commit }) {
-    const response = await this.$auth.$get('/user/google/profile')
+    const response = await this.$auth.$get('/user/google/profile', {
+      withCredentials: true
+    })
 
     if (Object.keys(response).length != 0) {
       commit('setGoogleLogin', true)
@@ -106,7 +112,9 @@ export const actions = {
   },
 
   async googleLogout ({ commit }) {
-    const res = await this.$auth.$get('/user/google/logout')
+    const res = await this.$auth.$get('/user/google/logout', {
+      withCredentials: true
+    })
 
     commit('setGoogleLogin', false)
     commit('setUser', {})
