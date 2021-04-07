@@ -56,7 +56,7 @@ export const actions = {
 
   async fbSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    const res = await this.$auth.$get('/api/user/auth/facebook', { params: 
+    const res = await this.$auth.$get('/user/auth/facebook', { params: 
         { state: state 
       }})
     window.open(res.url, '_self')
