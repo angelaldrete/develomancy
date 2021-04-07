@@ -56,9 +56,10 @@ export const actions = {
 
   async fbSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    const res = await this.$auth.get(`https://develomancy-auth-api.herokuappp.com/api/user/auth/facebook?state=${state}`)
-
-    window.open(res, '_self')
+    const res = await this.$auth.get('https://develomancy-auth-api.herokuappp.com/api/user/auth/facebook', { params: 
+        { state: state 
+      }})
+    window.open(res.url, '_self')
   },
 
   async fbLogin ({ commit }) {
@@ -89,8 +90,10 @@ export const actions = {
 
   async googleSignup ({ commit }) {
     const state = require('crypto').randomBytes(16).toString('hex')
-    const res = await this.$auth.get(`https://develomancy-auth-api.herokuappp.com/api/user/auth/google?state=${state}`)
-    window.open(res, '_self')
+    const res = await this.$auth.get('https://develomancy-auth-api.herokuappp.com/api/user/auth/google', { params: { 
+        state: state 
+      }})
+    window.open(res.url, '_self')
   },
 
   async googleLogin ({ commit }) {
