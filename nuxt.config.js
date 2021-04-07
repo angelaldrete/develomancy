@@ -48,7 +48,7 @@ export default {
   ],
 
   axios: {
-    baseUrl: 'http://localhost:5000/api'
+    baseUrl: 'https://develomancy-auth-api.herokuapp.com/api'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
