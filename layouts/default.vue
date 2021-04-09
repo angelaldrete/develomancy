@@ -25,7 +25,9 @@ export default {
   },
 
   mounted() {
-    this.getUser()
+    if(!this.isLoggedIn) {
+      this.getUser()
+    }
   },
 
   computed: {
