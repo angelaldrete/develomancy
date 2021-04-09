@@ -69,7 +69,7 @@
           Sign up
         </v-btn>
       </template>
-      <template slot="scope" v-else>
+      <template v-else>
         <p class="font-weight-light ma-0">
           Welcome, {{getUser.displayName || getUser.firstName}}
         </p>
