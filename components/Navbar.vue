@@ -60,7 +60,7 @@
 
       <v-spacer></v-spacer>
 
-      <span v-if="!isLoggedIn">
+      <div v-if="!isLoggedIn">
         <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
           Log in
         </v-btn>
@@ -68,8 +68,8 @@
         <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="openAuthDialog(1)">
           Sign up
         </v-btn>
-      </span>
-      <span v-else>
+      </div>
+      <div v-else>
         <p class="font-weight-light ma-0">
           Welcome, {{getUser.displayName || getUser.firstName}}
         </p>
@@ -77,7 +77,7 @@
         <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="logOut()">
           Log out
         </v-btn>
-      </span>
+      </div>
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
