@@ -17,9 +17,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getPostsTest ({ commit }) {
-    const res = await this.$axios.$get('/posts')
-  }
+
 }
 
 export const mutations = {}

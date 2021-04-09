@@ -60,21 +60,21 @@
 
       <v-spacer></v-spacer>
 
-      <template v-if="!isLoggedIn && !fbLoggedIn && !googleLoggedIn">
+      <template v-if="!isLoggedIn">
         <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
           Log in
         </v-btn>
-  
+
         <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="openAuthDialog(1)">
           Sign up
         </v-btn>
       </template>
       <template v-else>
         <p class="font-weight-light ma-0">
-          Welcome, {{getUser.firstName}}
+          Welcome, {{getUser.displayName || getUser.firstName}}
         </p>
-  
-        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="logout()">
+
+        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="logOut()">
           Log out
         </v-btn>
       </template>
@@ -111,19 +111,12 @@ export default {
       this.tabs = val
     },
     ...mapActions({
-      localLogout: 'auth/logout',
-      getPostsTest: 'posts/getPostsTest',
-      fbLogout: 'auth/fbLogout',
-      googleLogout: 'auth/googleLogout'
+      logout: 'auth/logout',
     }),
 
-    async logout() {
+    async logOut() {
       if(this.isLoggedIn) {
-        await this.localLogout()
-      } else if (this.fbLoggedIn) {
-        await this.fbLogout()
-      } else if (this.googleLoggedIn) {
-        await this.googleLogout()
+        await this.logout()
       }
     },
   },
@@ -131,8 +124,6 @@ export default {
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
-      fbLoggedIn: 'auth/fbLoggedIn',
-      googleLoggedIn: 'auth/googleLoggedIn',
       getUser: 'auth/getUser'
     })
   },

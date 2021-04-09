@@ -20,26 +20,17 @@ export default {
 
   methods: {
     ...mapActions({
-      fbLogin: 'auth/fbLogin',
-      googleLogin: 'auth/googleLogin'
+      getUser: 'auth/getUser',
     }),
   },
 
-  async mounted() {
-    if (!this.isLoggedIn && !this.fbLoggedIn) {
-      await this.googleLogin()
-    }
-
-    if (!this.isLoggedIn && !this.googleLoggedIn) {
-      await this.fbLogin()
-    }
+  mounted() {
+    this.getUser()
   },
 
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
-      fbLoggedIn: 'auth/fbLoggedIn',
-      googleLoggedIn: 'auth/googleLoggedIn'
     })
   }
 
