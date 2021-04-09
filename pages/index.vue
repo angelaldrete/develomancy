@@ -174,7 +174,7 @@
                     required
                   ></v-text-field>
 
-                  <v-select
+                  <!-- <v-select
                     prepend-inner-icon="mdi-note"
                     v-model="contact.select"
                     :items="allItems"
@@ -183,7 +183,7 @@
                     required
                   >
 
-                  </v-select>
+                  </v-select> -->
 
                   <v-textarea
                     prepend-inner-icon="mdi-message"
