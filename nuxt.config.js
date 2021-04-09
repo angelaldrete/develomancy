@@ -28,8 +28,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/axios',
-    '~/plugins/auth',
+    { src: '~/plugins/axios', mode: 'client' },
+    { src: '~/plugins/auth', mode: 'client' },
     { src: '~/plugins/vuex-persistedstate.js', ssr: false }
   ],
 
