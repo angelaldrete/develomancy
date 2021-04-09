@@ -67,6 +67,9 @@ export const actions = {
     if (res) {
       commit('setUser', res)
       commit('setLogin', true)
+    } else {
+      commit('setUser', {})
+      commit('setLogin', false)
     }
 
   }
