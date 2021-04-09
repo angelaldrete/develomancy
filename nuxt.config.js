@@ -28,9 +28,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/axios', mode: 'client' },
-    { src: '~/plugins/auth', mode: 'client' },
-    { src: '~/plugins/vuex-persistedstate.js', ssr: false }
+    '~/plugins/axios',
+    '~/plugins/auth',
+    { src:'~/plugins/vuex-persistedstate.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,7 +44,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    { src: '@nuxtjs/axios', mode: 'client' }
   ],
 
   axios: {
