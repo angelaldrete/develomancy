@@ -8,13 +8,13 @@
         <v-col>
           <div class="hero d-flex justify-center align-center">
             <div class="title">
-              <h1 class="display-4 darkText--text font-weight-black">
-                <span>
-                  <div id="imagineTitle">Imagine.</div>
-                  <div id="createTitle">Create.</div>
-                  <div id="shareTitle">Share.</div>
-                </span>
-              </h1>
+              <div>
+                <div class="title">
+                  <h1 class="display-4 darkText--text font-weight-black" id="imagineTitle">Imagine.</h1>
+                  <h1 class="display-4 darkText--text font-weight-black" id="createTitle">Create.</h1>
+                  <h1 class="display-4 darkText--text font-weight-black" id="shareTitle">Share.</h1>
+                </div>
+              </div>
               <div id="slogan" class="font-weight-light mb-5">Develop your ideas. Make 'em true.</div>
               <v-btn
                 depressed
@@ -44,14 +44,14 @@
             <h1 class="display-2 darkText--text mb-5">
               Start the journey. Develop your app.
             </h1>
-            <span align="center">
+            <div align="center">
               <p class="darkText--text">
                 We develop your app based on your necessities.
               </p>
               <p class="darkText--text">
                 This are some of our services we offer.
               </p>
-            </span>
+            </div>
           </div>
           <div class="d-flex justify-center align-center">
             <Services :services="allServices" class="services-grid"/>
@@ -100,11 +100,9 @@
               </v-img>
             </div>
             <div class="goal-block ml-5">
-              <h1 class="display-4 darkText--text font-weight-black">
-                <span>
-                  <div id="goalTitle" class="mb-5">Goal.</div>
-                </span>
-              </h1>
+              <div>
+                <h1 class="display-4 darkText--text font-weight-black mb-5" id="goalTitle">Goal.</h1>
+              </div>
               <div id="goalParr" class="font-weight-light">Our goal is to make your ideas come true. We develop from features to complete applications with the most high quality technology in the industry. We are always seeking for improvement.</div>
             </div>
           </div>
@@ -119,11 +117,9 @@
           <v-col md="8">
             <div class="projects d-flex justify-center align-center">
               <div class="projects-block">
-                <h1 class="display-4 darkText--text font-weight-black">
-                  <span>
-                    <div id="projectsTitle" class="mb-5">Projects.</div>
-                  </span>
-                </h1>
+                <div>
+                  <h1 class="display-4 darkText--text font-weight-black mb-5" id="projectsTitle">Projects.</h1>
+                </div>
                 <div id="projectsParr" class="font-weight-light mb-5">Some of our projects.</div>
                 <Projects :projects="allProjects"/>
               </div>
