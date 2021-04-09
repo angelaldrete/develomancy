@@ -260,10 +260,12 @@
       </v-row>
     </v-container>
 
-    <Auth
-      v-model="dialogActive"
-      :tabs="tabs"
-    />
+    <template v-if="!isLoggedIn">
+      <Auth
+        v-model="dialogActive"
+        :tabs="tabs"
+      />
+    </template>
 
   </v-main>
 
