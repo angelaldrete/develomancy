@@ -115,7 +115,7 @@ export default {
       logout: 'auth/logout',
     }),
 
-    mounted() {
+    created() {
       this.logged = this.isLoggedIn
     },
 
