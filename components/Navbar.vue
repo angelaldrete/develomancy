@@ -100,10 +100,8 @@ export default {
     Auth
   },
 
-  asyncData({ store }) {
-    const isLoggedIn = store.getters.isLoggedIn
-    const getUser = store.getters.getUser
-    return { isLoggedIn, getUser }
+  async mounted() {
+    await this.getUser()
   },
 
   data:() => ({
@@ -120,6 +118,7 @@ export default {
     },
     ...mapActions({
       logout: 'auth/logout',
+      getUser: 'auth/getUser',
     }),
 
     async logOut() {
