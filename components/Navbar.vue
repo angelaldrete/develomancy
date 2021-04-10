@@ -60,7 +60,7 @@
 
       <v-spacer></v-spacer>
 
-      <template v-if="!(isLoggedIn && getUser)">
+      <template v-if="!logged">
         <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
           Log in
         </v-btn>
@@ -102,7 +102,8 @@ export default {
     drawer: false,
     selectedItem: null,
     dialogActive: false,
-    tabs: null
+    tabs: null,
+    logged: false
   }),
 
   methods: {
@@ -113,6 +114,10 @@ export default {
     ...mapActions({
       logout: 'auth/logout',
     }),
+
+    mounted() {
+      this.logged = this.isLoggedIn
+    },
 
     async logOut() {
       if(this.isLoggedIn) {
