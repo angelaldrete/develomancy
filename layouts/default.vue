@@ -18,7 +18,17 @@ export default {
     Footer
   },
 
-  middleware: 'auth'
+  middleware({ $auth, store }) {
+    const user = await $auth.$get('/user', {
+      withCredentials: true
+    })
+
+    if (user) {
+      store.dispatch('auth/getUser', user)
+    } else {
+      return
+    }
+  }
 
 }
 </script>
