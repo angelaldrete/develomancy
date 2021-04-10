@@ -100,7 +100,7 @@ export default {
     Auth
   },
 
-  async created() {
+  async beforeCreate() {
     await this.user()
   },
 
