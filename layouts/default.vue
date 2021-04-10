@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -19,15 +18,23 @@ export default {
   },
 
   async mounted () {
-    const user = await this.$auth.$get('/user', {
-      withCredentials: true
-    })
-    console.log(user)
-    if (user) {
-      this.$store.dispatch('auth/getUser', user)
-    } else {
-      return
+    if(!this.isLoggedIn) {
+      const user = await this.$auth.$get('/user', {
+        withCredentials: true
+      })
+      console.log(user)
+      if (user) {
+        this.$store.dispatch('auth/getUser', user)
+      } else {
+        return
+      }
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn'
+    })
   }
 
 }
