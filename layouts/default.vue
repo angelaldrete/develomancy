@@ -18,8 +18,8 @@ export default {
     Footer
   },
 
-  middleware({ $auth, store }) {
-    $auth.$get('/user', {
+  async created() {
+    this.$auth.$get('/user', {
       withCredentials: true
     }).then((user) => {
       if (user) {
