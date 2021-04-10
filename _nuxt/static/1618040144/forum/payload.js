@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/forum", {data:[{}],fetch:{},mutations:[]});
