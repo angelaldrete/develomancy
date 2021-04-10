@@ -69,7 +69,7 @@
           Sign up
         </v-btn>
       </template>
-      <template v-else-if="!$fetchState.pending">
+      <template v-else>
         <p class="font-weight-light ma-0">
           Welcome, {{getUser.displayName ? getUser.displayName : getUser.firstName}}
         </p>
