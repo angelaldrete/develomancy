@@ -100,7 +100,7 @@ export default {
     Auth
   },
 
-  async mounted() {
+  async created() {
     await this.user()
   },
 
