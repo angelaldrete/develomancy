@@ -115,8 +115,8 @@ export default {
       logout: 'auth/logout',
     }),
 
-    mounted() {
-      this.logged = this.isLoggedIn
+    async asyncData() {
+      this.logged = await this.isLoggedIn
     },
 
     async logOut() {
