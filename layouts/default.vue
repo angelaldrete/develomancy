@@ -19,14 +19,16 @@ export default {
   },
 
   async created() {
-    const user = await this.$auth.$get('/user', {
-      withCredentials: true
+    this.$nextTick(() => {
+      const user = await this.$auth.$get('/user', {
+        withCredentials: true
+      })
+      if (user) {
+        this.$store.dispatch('auth/getUser', user)
+      } else {
+        return
+      }
     })
-    if (user) {
-      this.$store.dispatch('auth/getUser', user)
-    } else {
-      return
-    }
   }
 
 }
