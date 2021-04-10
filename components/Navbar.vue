@@ -62,12 +62,12 @@
 
         <v-btn outlined tile color="primary" class="font-weight-bold" 
           @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
-          {{!(logged && getUser) ? 'Login' : 'My Account'}}
+          {{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}
         </v-btn>
 
         <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" 
           @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
-          {{!(logged && getUser) ? 'Signup' : 'Logout'}}
+          {{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}
         </v-btn>
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
