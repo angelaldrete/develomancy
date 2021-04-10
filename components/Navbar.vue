@@ -60,14 +60,24 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
-        {{ getUser && isLoggedIn ? `Welcome, ${getUser.displayName}` : 'Login'}}
-      </v-btn>
+      <template v-if="!(isLoggedIn && getUser)">
+        <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
+          Log in
+        </v-btn>
 
-      <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" 
-        @click="!(getUser && isLoggedIn) ? openAuthDialog(1) : logOut()">
-        {{ getUser && isLoggedIn ? 'Logout' : 'Signup'}}
-      </v-btn>
+        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="openAuthDialog(1)">
+          Sign up
+        </v-btn>
+      </template>
+      <template v-else>
+        <p class="font-weight-light ma-0">
+          Welcome, {{getUser.displayName || getUser.firstName}}
+        </p>
+
+        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="logOut()">
+          Log out
+        </v-btn>
+      </template>
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
