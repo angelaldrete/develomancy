@@ -59,16 +59,14 @@ export const actions = {
     window.open('https://develomancy-auth-api.herokuapp.com/api/google/auth', '_self')
   },
 
-  async getUser ({ commit }) {
-    const res = await this.$auth.$get('/user', {
-      withCredentials: true
-    })
-
-    if (res) {
-      commit('setUser', res)
+  getUser ({ commit }, user) {
+    if (user) {
+      commit('setUser', user)
       commit('setLogin', true)
+    } else {
+      commit('setUser', {})
+      commit('setLogin', false)
     }
-
   }
 
 }

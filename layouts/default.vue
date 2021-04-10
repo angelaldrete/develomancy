@@ -18,15 +18,9 @@ export default {
     Footer
   },
 
-  methods: {
-    ...mapActions({
-      getUser: 'auth/getUser',
-    }),
-  },
-
-  async mounted() {
-    await this.getUser()
-  },
+  middleware: [
+    'auth'
+  ]
 
 }
 </script>
