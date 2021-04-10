@@ -123,9 +123,15 @@ export default {
     },
   },
 
+  props: {
+    isLoggedIn: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
       getUser: 'auth/getUser'
     })
   },

@@ -212,22 +212,7 @@
     <v-container class="mb-10">
       <v-row align="center" justify="center">
         <v-col>
-          <div v-if="isLoggedIn" class="d-flex justify-center align-center mb-10 flex-column">
-            <h1 class="display-2 darkText--text mb-5">
-              Welcome to the community, be aware of our exclusive content!
-            </h1>
-            <h1 class="display-2 darkText--text mb-10">
-              You will receive exclusive content, notifications and more.
-            </h1>
-            <div class="reminder-image mb-10">
-              <v-img
-                :src="require('~/assets/undraw_develop_app_re_bi4i.svg')"
-                max-width="700"
-              >
-              </v-img>
-            </div>
-          </div>
-          <div v-else class="d-flex justify-center align-center mb-10 flex-column">
+          <div class="d-flex justify-center align-center mb-10 flex-column">
             <h1 class="display-2 darkText--text mb-5">
               Or join the community, and become a client and consumer of our content.
             </h1>
@@ -255,13 +240,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <template v-if="!isLoggedIn">
-      <Auth
-        v-model="dialogActive"
-        :tabs="tabs"
-      />
-    </template>
 
   </v-main>
 
@@ -291,7 +269,6 @@ export default {
       allPosts: 'posts/allPosts',
       allProjects: 'projects/allProjects',
       allItems: 'contact/allItems',
-      isLoggedIn: 'auth/isLoggedIn'
     })
   },
   data: () => ({
@@ -334,17 +311,6 @@ export default {
     openAuthDialogHome(val) {
       this.dialogActive = !this.dialogActive
       this.tabs = val
-    }
-  },
-
-  async mounted () {
-    if(!this.isLoggedIn) {
-      const user = await this.$auth.$get('/user', {
-        withCredentials: true
-      })
-      if (user) {
-        this.$store.dispatch('auth/getUser', user)
-      }
     }
   },
 }

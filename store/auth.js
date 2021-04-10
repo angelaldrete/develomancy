@@ -2,12 +2,10 @@ import axios from 'axios'
 
 export const state = () => ({
   user: {},
-  loggedIn: false,
 })
 
 export const getters = {
   getUser: (state) => state.user,
-  isLoggedIn: (state) => state.loggedIn,
 }
 
 export const actions = {
@@ -36,7 +34,6 @@ export const actions = {
     }
 
     commit('setUser', {})
-    commit('setLogin', false)
   },
 
   async register ({ commit }, { firstName, lastName, email, password }) {
@@ -61,12 +58,10 @@ export const actions = {
 
   getUser ({ commit }, user) {
     commit('setUser', user)
-    commit('setLogin', true)
   }
 
 }
 
 export const mutations = {
   setUser: (state, user) => state.user = user,
-  setLogin: (state, login) => state.loggedIn = login,
 }
