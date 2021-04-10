@@ -2,10 +2,12 @@ import axios from 'axios'
 
 export const state = () => ({
   user: {},
+  loggedIn: false,
 })
 
 export const getters = {
   getUser: (state) => state.user,
+  isLoggedIn: (state) => state.loggedIn,
 }
 
 export const actions = {
@@ -34,6 +36,7 @@ export const actions = {
     }
 
     commit('setUser', {})
+    commit('setLogin', false)
   },
 
   async register ({ commit }, { firstName, lastName, email, password }) {
@@ -46,22 +49,31 @@ export const actions = {
   // Facebook Signing
 
   fbSignup () {
-    window.open('https://develomancy-auth-api.herokuapp.com/api/facebook/auth', '_self')
+    window.open('http://localhost:4000/api/facebook/auth', '_self')
   },
 
 
   // Google Signing
 
   googleSignup () {
-    window.open('https://develomancy-auth-api.herokuapp.com/api/google/auth', '_self')
+    window.open('http://localhost:4000/api/google/auth', '_self')
   },
 
-  getUser ({ commit }, user) {
-    commit('setUser', user)
+  async getUser ({ commit }) {
+    const res = await this.$auth.$get('/user', {
+      withCredentials: true
+    })
+
+    if (res) {
+      commit('setUser', res)
+      commit('setLogin', true)
+    }
+
   }
 
 }
 
 export const mutations = {
   setUser: (state, user) => state.user = user,
+  setLogin: (state, login) => state.loggedIn = login,
 }

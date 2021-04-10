@@ -1,12 +1,10 @@
 <template>
   <div>
 
-    <template v-if="!isLoggedIn">
-      <Auth
-        v-model="dialogActive"
-        :tabs="tabs"
-      />
-    </template>
+    <Auth
+      v-model="dialogActive"
+      :tabs="tabs"
+    />
 
     <v-navigation-drawer v-model="drawer" app right>
       <v-list dense>
@@ -123,15 +121,9 @@ export default {
     },
   },
 
-  props: {
-    isLoggedIn: {
-      type: Boolean,
-      default: false
-    }
-  },
-
   computed: {
     ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn',
       getUser: 'auth/getUser'
     })
   },
