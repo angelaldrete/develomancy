@@ -21,7 +21,7 @@ export default {
     loginState: false
   }),
 
-  async fetch () {
+  async mounted () {
     const user = await this.$auth.$get('/user', {
       withCredentials: true
     })
