@@ -23,11 +23,8 @@ export default {
       const user = await this.$auth.$get('/user', {
         withCredentials: true
       })
-      console.log(user)
       if (user) {
         this.$store.dispatch('auth/getUser', user)
-      } else {
-        return
       }
     }
   },
