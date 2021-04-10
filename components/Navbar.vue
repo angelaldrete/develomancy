@@ -100,10 +100,6 @@ export default {
     Auth
   },
 
-  async beforeCreate() {
-    await this.user()
-  },
-
   data:() => ({
     drawer: false,
     selectedItem: null,
@@ -118,7 +114,6 @@ export default {
     },
     ...mapActions({
       logout: 'auth/logout',
-      user: 'auth/getUser',
     }),
 
     async logOut() {
