@@ -18,9 +18,7 @@ export default {
     Footer
   },
 
-  middleware: [
-    'auth'
-  ]
+  middleware: 'auth'
 
 }
 </script>
