@@ -44,7 +44,7 @@
             <h1 class="display-2 darkText--text mb-5">
               Start the journey. Develop your app.
             </h1>
-            <div align="center">
+            <div>
               <p class="darkText--text">
                 We develop your app based on your necessities.
               </p>

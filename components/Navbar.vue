@@ -1,10 +1,12 @@
 <template>
   <div>
 
-    <Auth
-      v-model="dialogActive"
-      :tabs="tabs"
-    />
+    <template v-if="!isLoggedIn">
+      <Auth
+        v-model="dialogActive"
+        :tabs="tabs"
+      />
+    </template>
 
     <v-navigation-drawer v-model="drawer" app right>
       <v-list dense>
