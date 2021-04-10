@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!isHidden">
+  <div v-if="!isHidden">
     <v-form class="d-flex" @submit.prevent="submitComment">
       <div class="comment-user mr-5" :style="`background-image: url('${dumbImage}');`"
       >

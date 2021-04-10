@@ -37,7 +37,7 @@
       <v-row align="center" justify="center">
         <v-col lg="6">
           <div class="content mb-10 text-h5 darkText--text font-weight-medium text-pre-line">
-            <h1 class="font-weight-black darkText--text display-2 mb-5" v-show="comments.length">
+            <h1 class="font-weight-black darkText--text display-2 mb-5" v-if="comments.length">
               Comments.
             </h1>
             <h1 class="darkText--text text-center text-body-1 mb-5" v-else>

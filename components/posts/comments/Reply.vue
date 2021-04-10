@@ -52,7 +52,7 @@
             Respond
           </v-btn>
         </div>
-        <div class="replies-wrapper mb-5" v-show="reply.replies">
+        <div class="replies-wrapper mb-5" v-if="reply.replies">
           <Replies
             :replies="reply.replies"
             :toUser="reply.toUserId"

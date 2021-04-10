@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <template v-show="!isLoggedIn">
+    <template v-if="!isLoggedIn">
       <Auth
         v-model="dialogActive"
         :tabs="tabs"
@@ -62,7 +62,7 @@
 
       <v-spacer></v-spacer>
 
-      <template v-show="!isLoggedIn">
+      <template v-if="!isLoggedIn">
         <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
           Log in
         </v-btn>
@@ -98,6 +98,12 @@ export default {
   name: 'Navbar',
   components: {
     Auth
+  },
+
+  asyncData({ store }) {
+    const isLoggedIn = store.getters.isLoggedIn
+    const getUser = store.getters.getUser
+    return { isLoggedIn, getUser }
   },
 
   data:() => ({

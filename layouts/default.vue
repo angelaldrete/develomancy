@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -24,18 +24,9 @@ export default {
     }),
   },
 
-  mounted() {
-    this.$apollo.queries.getCampaign.setOptions({
-      fetchPolicy: 'cache-and-network',
-    })
-    this.getUser()
+  async mounted() {
+    await this.getUser()
   },
-
-  computed: {
-    ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-    })
-  }
 
 }
 </script>
