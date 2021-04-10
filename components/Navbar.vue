@@ -61,12 +61,12 @@
       <v-spacer></v-spacer>
 
         <v-btn outlined tile color="primary" class="font-weight-bold" 
-          @click="!(logged && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
+          @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
           {{!(logged && getUser) ? 'Login' : 'My Account'}}
         </v-btn>
 
         <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" 
-          @click="!(logged && getUser) ? openAuthDialog(1) : logOut()">
+          @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
           {{!(logged && getUser) ? 'Signup' : 'Logout'}}
         </v-btn>
 
@@ -94,7 +94,6 @@ export default {
     selectedItem: null,
     dialogActive: false,
     tabs: null,
-    logged: false
   }),
 
   methods: {
@@ -105,10 +104,6 @@ export default {
     ...mapActions({
       logout: 'auth/logout',
     }),
-
-    mounted() {
-      this.logged = this.isLoggedIn
-    },
 
     async logOut() {
       if(this.isLoggedIn) {
