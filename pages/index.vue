@@ -335,7 +335,18 @@ export default {
       this.dialogActive = !this.dialogActive
       this.tabs = val
     }
-  }
+  },
+
+  async mounted () {
+    if(!this.isLoggedIn) {
+      const user = await this.$auth.$get('/user', {
+        withCredentials: true
+      })
+      if (user) {
+        this.$store.dispatch('auth/getUser', user)
+      }
+    }
+  },
 }
 </script>
 
