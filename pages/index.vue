@@ -170,7 +170,7 @@
                     required
                   ></v-text-field>
 
-                  <!-- <v-select
+                  <v-select
                     prepend-inner-icon="mdi-note"
                     v-model="contact.select"
                     :items="allItems"
@@ -179,7 +179,7 @@
                     required
                   >
 
-                  </v-select> -->
+                  </v-select>
 
                   <v-textarea
                     prepend-inner-icon="mdi-message"
@@ -219,16 +219,6 @@
             <h1 class="display-2 darkText--text mb-5">
               You can receive exclusive content, notifications and more.
             </h1>
-            <v-btn
-              class="mb-15 mt-10"
-              depressed
-              tile
-              min-width="200"
-              color="primary"
-              @click="openAuthDialogHome(1)"
-            >
-              Join
-            </v-btn>
             <div class="reminder-image mb-10">
               <v-img
                 :src="require('~/assets/undraw_develop_app_re_bi4i.svg')"
