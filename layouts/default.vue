@@ -23,7 +23,7 @@ export default {
       withCredentials: true
     })
     if (user) {
-      store.dispatch('auth/getUser', user)
+      this.$store.dispatch('auth/getUser', user)
     } else {
       return
     }
