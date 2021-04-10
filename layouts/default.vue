@@ -18,17 +18,16 @@ export default {
     Footer
   },
 
-  async created() {
-    this.$nextTick(() => {
-      const user = await this.$auth.$get('/user', {
-        withCredentials: true
-      })
-      if (user) {
-        this.$store.dispatch('auth/getUser', user)
-      } else {
-        return
-      }
+  async mounted () {
+    const user = await this.$auth.$get('/user', {
+      withCredentials: true
     })
+    console.log(user)
+    if (user) {
+      this.$store.dispatch('auth/getUser', user)
+    } else {
+      return
+    }
   }
 
 }
