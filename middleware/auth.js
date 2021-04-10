@@ -7,7 +7,7 @@ export default async function ({ $auth, store }) {
   if (user) {
     store.dispatch('auth/getUser', user)
   } else {
-    return
+    //
   }
 
 }
