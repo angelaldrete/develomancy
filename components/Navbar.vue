@@ -60,24 +60,15 @@
 
       <v-spacer></v-spacer>
 
-      <template v-if="!logged">
-        <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
-          Log in
+        <v-btn outlined tile color="primary" class="font-weight-bold" 
+          @click="!(logged && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
+          {{!(logged && getUser) ? 'Login' : 'My Account'}}
         </v-btn>
 
-        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="openAuthDialog(1)">
-          Sign up
+        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" 
+          @click="!(logged && getUser) ? openAuthDialog(1) : logOut()">
+          {{!(logged && getUser) ? 'Signup' : 'Logout'}}
         </v-btn>
-      </template>
-      <template v-else>
-        <p class="font-weight-light ma-0">
-          Welcome, {{getUser.displayName ? getUser.displayName : getUser.firstName}}
-        </p>
-
-        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" @click="logOut()">
-          Log out
-        </v-btn>
-      </template>
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
@@ -115,8 +106,8 @@ export default {
       logout: 'auth/logout',
     }),
 
-    async asyncData() {
-      this.logged = await this.isLoggedIn
+    mounted() {
+      this.logged = this.isLoggedIn
     },
 
     async logOut() {
