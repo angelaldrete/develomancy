@@ -101,7 +101,7 @@ export default {
   },
 
   async mounted() {
-    await this.getUser()
+    await this.user()
   },
 
   data:() => ({
@@ -118,7 +118,7 @@ export default {
     },
     ...mapActions({
       logout: 'auth/logout',
-      getUser: 'auth/getUser',
+      user: 'auth/getUser',
     }),
 
     async logOut() {
