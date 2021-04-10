@@ -60,13 +60,8 @@ export const actions = {
   },
 
   getUser ({ commit }, user) {
-    if (user) {
-      commit('setUser', user)
-      commit('setLogin', true)
-    } else {
-      commit('setUser', {})
-      commit('setLogin', false)
-    }
+    commit('setUser', user)
+    commit('setLogin', true)
   }
 
 }

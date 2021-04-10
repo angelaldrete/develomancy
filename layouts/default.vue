@@ -19,15 +19,18 @@ export default {
   },
 
   middleware({ $auth, store }) {
-    const user = await $auth.$get('/user', {
+    $auth.$get('/user', {
       withCredentials: true
+    }).then((user) => {
+      if (user) {
+        store.dispatch('auth/getUser', user)
+      } else {
+        return
+      }
+    }).catch(() => {
+      store.commit('auth/setUser', {})
+      store.commit('auth/setLogin', false)
     })
-
-    if (user) {
-      store.dispatch('auth/getUser', user)
-    } else {
-      return
-    }
   }
 
 }
