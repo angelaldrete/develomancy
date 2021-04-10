@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <template v-if="!isLoggedIn">
+    <template v-show="!isLoggedIn">
       <Auth
         v-model="dialogActive"
         :tabs="tabs"
@@ -62,7 +62,7 @@
 
       <v-spacer></v-spacer>
 
-      <template v-if="!isLoggedIn">
+      <template v-show="!isLoggedIn">
         <v-btn outlined tile color="primary" class="font-weight-bold" @click="openAuthDialog(0)">
           Log in
         </v-btn>

@@ -212,7 +212,7 @@
     <v-container class="mb-10">
       <v-row align="center" justify="center">
         <v-col>
-          <div v-if="isLoggedIn" class="d-flex justify-center align-center mb-10 flex-column">
+          <div v-show="isLoggedIn" class="d-flex justify-center align-center mb-10 flex-column">
             <h1 class="display-2 darkText--text mb-5">
               Welcome to the community, be aware of our exclusive content!
             </h1>
@@ -256,7 +256,7 @@
       </v-row>
     </v-container>
 
-    <template v-if="!isLoggedIn">
+    <template v-show="!isLoggedIn">
       <Auth
         v-model="dialogActive"
         :tabs="tabs"

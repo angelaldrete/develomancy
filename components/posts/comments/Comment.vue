@@ -50,7 +50,7 @@
             Respond
           </v-btn>
         </div>
-        <div class="replies-wrapper mb-5" v-if="comment.replies">
+        <div class="replies-wrapper mb-5" v-show="comment.replies">
           <Replies
             :replies="comment.replies"
             :toUser="comment.userId"
