@@ -25,6 +25,9 @@ export default {
   },
 
   mounted() {
+    this.$apollo.queries.getCampaign.setOptions({
+      fetchPolicy: 'cache-and-network',
+    })
     this.getUser()
   },
 
