@@ -19,18 +19,14 @@ export default {
   },
 
   async created() {
-    this.$auth.$get('/user', {
+    const user = await this.$auth.$get('/user', {
       withCredentials: true
-    }).then((user) => {
-      if (user) {
-        store.dispatch('auth/getUser', user)
-      } else {
-        return
-      }
-    }).catch(() => {
-      store.commit('auth/setUser', {})
-      store.commit('auth/setLogin', false)
     })
+    if (user) {
+      store.dispatch('auth/getUser', user)
+    } else {
+      return
+    }
   }
 
 }
