@@ -49,14 +49,14 @@ export const actions = {
   // Facebook Signing
 
   fbSignup () {
-    window.open('http://localhost:4000/api/facebook/auth', '_self')
+    window.open('https://develomancy-auth-api.herokuapp.com/api/facebook/auth', '_self')
   },
 
 
   // Google Signing
 
   googleSignup () {
-    window.open('http://localhost:4000/api/google/auth', '_self')
+    window.open('https://develomancy-auth-api.herokuapp.com/api/google/auth', '_self')
   },
 
   async getUser ({ commit }) {
