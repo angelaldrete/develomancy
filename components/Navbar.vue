@@ -6,7 +6,7 @@
       :tabs="tabs"
     />
 
-    <v-navigation-drawer v-model="drawer" app right>
+    <v-navigation-drawer v-model="drawer" app disable-resize-watcher right>
       <v-list dense>
         <v-subheader>MENU</v-subheader>
         <v-list-item-group
@@ -54,25 +54,24 @@
 
     <v-app-bar flat app color="white">
 
-      <v-app-bar-title>
+      <div class="d-flex align-center">
         <img src="/develomancy_logo.svg">
-      </v-app-bar-title>
+      </div>
 
       <v-spacer></v-spacer>
 
-        <v-btn outlined tile color="primary" class="font-weight-bold" 
-          @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
-          {{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}
-        </v-btn>
+      <v-btn outlined tile color="primary" class="font-weight-bold hidden-sm-and-down"
+        @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
+        {{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}
+      </v-btn>
 
-        <v-btn depressed tile color="primary" class="ml-3 font-weight-bold" 
-          @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
-          {{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}
-        </v-btn>
+      <v-btn depressed tile color="primary" class="ml-3 font-weight-bold hidden-sm-and-down"
+        @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
+        {{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}
+      </v-btn>
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
-
     </v-app-bar>
 
   </div>
