@@ -48,6 +48,14 @@
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
+          <v-list-item @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
+            <v-list-item-title>{{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
+            <v-list-item-title>{{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}</v-list-item-title>
+          </v-list-item>
+
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
