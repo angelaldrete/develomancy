@@ -348,9 +348,12 @@ export default {
 <style scoped>
 
 .hero,
-.goal,
-.projects {
+.goal {
   height: 100vh;
+}
+
+.projects {
+  height: 120vh;
 }
 
 .services-grid {

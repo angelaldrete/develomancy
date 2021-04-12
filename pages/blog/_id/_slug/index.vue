@@ -8,7 +8,7 @@
           <v-col lg="6">
             <div class="post d-flex justify-center align-end">
               <div class="post-heading d-flex flex-column text-center mb-10">
-                <div class="post-title white--text font-weight-black display-4 mb-10">
+                <div class="post-title white--text font-weight-black text-h3 text-sm-h2 text-md-h1 mb-10">
                   {{post.title}}
                 </div>
                 <div class="post-excerpt white--text text-h6">

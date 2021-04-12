@@ -4,7 +4,7 @@
       class="fill-height post-card-image">
       <div class="fill-height bottom-gradient"></div>
     </div>
-    <v-card-title class="font-weight-bold">{{post.title}}</v-card-title>
+    <v-card-title class="font-weight-bold text-body-1">{{post.title}}</v-card-title>
     <v-card-text>{{ post.excerpt | ellipsis }}</v-card-text>
     <v-card-actions>
       <v-btn

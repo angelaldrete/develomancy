@@ -4,10 +4,10 @@
     <!-- Hero Section -->
     <v-container>
       <v-row align="center" justify="center">
-        <v-col>
-          <div class="projects-hero d-flex justify-center align-center">
+        <v-col col="12">
+          <div class="projects-hero d-flex justify-center align-center flex-column flex-md-row ml-5 mr-5 ml-sm-0 mr-sm-0">
             <div class="title">
-              <h1 class="display-4 darkText--text font-weight-black">
+              <h1 class="text-h3 text-sm-h2 text-md-h1 darkText--text font-weight-black mb-10 mb-sm-0">
                 <span>
                   <div id="projectsTitle">Projects.</div>
                 </span>
@@ -20,7 +20,7 @@
               <v-img
                 id="projectsHeroImage"
                 :src="require('~/assets/undraw_Code_review_re_woeb.svg')"
-                max-width="700"
+                :max-width="width"
               >
               </v-img>
             </div>
@@ -33,11 +33,16 @@
     <v-container>
       <v-row align="center" justify="center">
         <v-col>
-          <div class="list-of-projects d-flex flex-column justify-center align-center">
-            <h1 class="display-3 text-center mb-10">
+          <div class="list-of-projects d-flex flex-column align-start align-sm-center justify-center ml-5 mr-5 ml-sm-0 mr-sm-0">
+            <h1 class="text-h5 text-sm-h4 text-md-h3 mb-10">
               Projects
             </h1>
-            <Projects :projects="allProjects" class="projects-grid mb-10"/>
+            <Projects
+              :projects="allProjects"
+              :class="$vuetify.breakpoint.name === 'xs' ?
+              'projects-xs-grid' :
+                ($vuetify.breakpoint.name === 'sm' ? 'projects-sm-grid' : 'projects-grid')"
+              class="mb-10"/>
           </div>
         </v-col>
       </v-row>
@@ -48,14 +53,15 @@
       <v-container>
         <v-row align="center" justify="center">
           <v-col md="7">
-            <div class="summary d-flex justify-center align-center">
+            <div class="summary d-flex justify-center align-center flex-column flex-md-row mr-5 ml-5 mr-md-0 ml-md-0">
               <v-img
-                max-width="300px"
+                class="mb-10 mb-md-0"
+                :max-width="width"
                 :src="require('~/assets/img/tracy-adams-TEemXOpR3cQ-unsplash.jpg')"
               >
               </v-img>
-              <div class="summary-desc ml-10">
-                <h1 class="display-4 white--text font-weight-black mb-5">
+              <div class="summary-desc ml-0 ml-md-10">
+                <h1 class="text-h3 text-sm-h2 text-md-h1 white--text font-weight-black mb-5">
                   Experience.
                 </h1>
                 <p class="summ-parr white--text font-weight-light">
@@ -93,7 +99,17 @@ export default {
   computed: {
     ...mapGetters({
       allProjects: 'projects/allProjects'
-    })
+    }),
+
+    width () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 220
+        case 'sm': return 400
+        case 'md': return 500
+        case 'lg': return 600
+        case 'xl': return 800
+      }
+    },
   }
 }
 </script>
@@ -108,6 +124,20 @@ export default {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    row-gap: 0;
+  }
+
+  .projects-xs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    row-gap: 0;
+  }
+
+  .projects-sm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     row-gap: 0;
   }
