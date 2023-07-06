@@ -1,9 +1,7 @@
-export default function ({ $axios }, inject) {
+export default function({ $axios }, inject) {
+  const auth = $axios.create();
 
-  const auth = $axios.create()
+  auth.setBaseURL("http://localhost:5000/api");
 
-  auth.setBaseURL('https://develomancy-auth-api.herokuapp.com/api')
-
-  inject('auth', auth)
-
+  inject("auth", auth);
 }

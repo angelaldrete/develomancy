@@ -1,11 +1,6 @@
 <template>
   <div>
 
-    <Auth
-      v-model="dialogActive"
-      :tabs="tabs"
-    />
-
     <v-navigation-drawer v-model="drawer" app disable-resize-watcher right>
       <v-list dense>
         <v-subheader>MENU</v-subheader>
@@ -48,13 +43,13 @@
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
+          <!-- <v-list-item @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
             <v-list-item-title>{{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
             <v-list-item-title>{{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
 
         </v-list-item-group>
       </v-list>
@@ -68,7 +63,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn outlined tile color="primary" class="font-weight-bold hidden-sm-and-down"
+      <!-- <v-btn outlined tile color="primary" class="font-weight-bold hidden-sm-and-down"
         @click="!(isLoggedIn && getUser) ? openAuthDialog(0) : $router.push('/my-account')">
         {{!(isLoggedIn && getUser) ? 'Login' : 'My Account'}}
       </v-btn>
@@ -76,7 +71,7 @@
       <v-btn depressed tile color="primary" class="ml-3 font-weight-bold hidden-sm-and-down"
         @click="!(isLoggedIn && getUser) ? openAuthDialog(1) : logOut()">
         {{!(isLoggedIn && getUser) ? 'Signup' : 'Logout'}}
-      </v-btn>
+      </v-btn> -->
 
       <v-app-bar-nav-icon tile text class="ml-3" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
@@ -108,22 +103,22 @@ export default {
       this.dialogActive = !this.dialogActive
       this.tabs = val
     },
-    ...mapActions({
-      logout: 'auth/logout',
-    }),
+    // ...mapActions({
+    //   logout: 'auth/logout',
+    // }),
 
-    async logOut() {
-      if(this.isLoggedIn) {
-        await this.logout()
-      }
-    },
+    // async logOut() {
+    //   if(this.isLoggedIn) {
+    //     await this.logout()
+    //   }
+    // },
   },
 
   computed: {
-    ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-      getUser: 'auth/getUser'
-    })
+    // ...mapGetters({
+    //   isLoggedIn: 'auth/isLoggedIn',
+    //   getUser: 'auth/getUser'
+    // })
   },
 }
 </script>

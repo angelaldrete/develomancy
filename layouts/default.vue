@@ -25,7 +25,7 @@ export default {
   },
 
   async created() {
-    await this.getUser()
+    // await this.getUser()
   },
 
 }
